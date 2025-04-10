@@ -55,7 +55,9 @@ Future<AllProjectDependencies> listDependencies({
   );
 
   for (var p in loadedPackages) {
-    print("VTI: ${p!.name}");
+    if(p != null){
+      print("VTI: ${p!.name}");
+    }
   }
 
   final packagesByName = Map.fromEntries(loadedPackages.where((p) => p != null).map((p) => MapEntry(p!.name, p)));
