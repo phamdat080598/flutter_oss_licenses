@@ -107,6 +107,8 @@ class Package extends ProjectDependencies {
       directory = Directory(path.absolute(path.dirname(pubspecLockPath), desc['path']));
       isSdk = true;
     } else {
+      final name = desc['name'];
+      print('error1 : $name');
       return null;
     }
 
@@ -141,6 +143,8 @@ class Package extends ProjectDependencies {
     final name = yaml['name'];
     final description = yaml['description'];
     if (name is! String || description is! String) {
+      final packageName = desc['name'];
+      print('error2 : yamlName :$name , packageName : $packageName');
       return null;
     }
 
@@ -148,6 +152,8 @@ class Package extends ProjectDependencies {
         ? await File(path.join(flutterDir, 'version')).readAsString()
         : yaml['version'];
     if (version is! String) {
+      final packageName = desc['name'];
+      print('error3 : yamlName :$name , packageName : $packageName');
       return null;
     }
 
