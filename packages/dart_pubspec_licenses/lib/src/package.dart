@@ -137,14 +137,15 @@ class Package extends ProjectDependencies {
       yaml = loadYaml(await File(path.join(directory.path, 'pubspec.yaml')).readAsString());
     } catch (e) {
       // yaml may not be there
+      print('error2 : $e');
       yaml = {};
     }
 
     final name = yaml['name'];
     final description = yaml['description'];
+    print('yaml : ${yaml.toString()}');
     if (name is! String || description is! String) {
       print('error2-packageJson : $packageJson');
-      print('error2-yaml : ${yaml.toString()}');
       print('error2-cause : yamlName :${name.toString()} , description :${description.toString()}');
       return null;
     }
