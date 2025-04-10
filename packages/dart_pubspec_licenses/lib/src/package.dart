@@ -143,8 +143,7 @@ class Package extends ProjectDependencies {
     final name = yaml['name'];
     final description = yaml['description'];
     if (name is! String || description is! String) {
-      final packageName = desc['name'];
-      print('error2 : yamlName :${name.toString()} , packageName : $packageName, description :${description.toString()}');
+      print('error2 : yamlName :${name.toString()} , description :${description.toString()}');
       return null;
     }
 
@@ -152,8 +151,7 @@ class Package extends ProjectDependencies {
         ? await File(path.join(flutterDir, 'version')).readAsString()
         : yaml['version'];
     if (version is! String) {
-      final packageName = desc['name'];
-      print('error3 : yamlName :$name , packageName : $packageName , version : ${version.toString()}');
+      print('error3 : yamlName :$name  , version : ${version.toString()}');
       return null;
     }
 
