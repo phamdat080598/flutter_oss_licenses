@@ -56,10 +56,8 @@ Future<AllProjectDependencies> listDependencies({
         ),
   );
 
-  for (var p in loadedPackages) {
-    if(p != null){
-      print("VTI: ${p!.name}");
-    }
+  for (var p in packages.values) {
+      print("VTI: $p");
   }
 
   final packagesByName = Map.fromEntries(loadedPackages.where((p) => p != null).map((p) => MapEntry(p!.name, p)));
@@ -77,12 +75,6 @@ Future<AllProjectDependencies> listDependencies({
     allDependencies: packagesByName.values.toList(),
   );
   final processed = <String>{};
-  for (var p in packagesByName.values) {
-    print("VTI: packagesByName : ${p.name}");
-  }
-  for (var p in projectDependencies.allDependencies) {
-    print("VTI: allDependencies : ${p.name}");
-  }
   await _createDependencies(processed, projectDependencies, packagesByName,
       allDeps['direct main'], allDeps['direct dev'], null);
 
