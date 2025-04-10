@@ -144,7 +144,7 @@ class Package extends ProjectDependencies {
     final description = yaml['description'];
     if (name is! String || description is! String) {
       final packageName = desc['name'];
-      print('error2 : yamlName :$name , packageName : $packageName');
+      print('error2 : yamlName :${name.toString()} , packageName : $packageName, description :${description.toString()}');
       return null;
     }
 
@@ -153,7 +153,7 @@ class Package extends ProjectDependencies {
         : yaml['version'];
     if (version is! String) {
       final packageName = desc['name'];
-      print('error3 : yamlName :$name , packageName : $packageName');
+      print('error3 : yamlName :$name , packageName : $packageName , version : ${version.toString()}');
       return null;
     }
 
