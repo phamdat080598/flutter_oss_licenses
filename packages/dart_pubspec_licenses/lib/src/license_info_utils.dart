@@ -54,6 +54,10 @@ Future<AllProjectDependencies> listDependencies({
         ),
   );
 
+  for (var p in loadedPackages) {
+    print("VTI: ${p!.name}");
+  }
+
   final packagesByName = Map.fromEntries(loadedPackages.where((p) => p != null).map((p) => MapEntry(p!.name, p)));
   final allDeps = packages.entries.fold<Map<String, List<Package>>>({}, (map, e) {
     final package = packagesByName[e.key];
