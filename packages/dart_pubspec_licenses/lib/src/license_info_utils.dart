@@ -56,6 +56,10 @@ Future<AllProjectDependencies> listDependencies({
         ),
   );
 
+  for(var ig in ignore){
+    print("VTI-ignore: $ig");
+  }
+
   for (var p in packages.values) {
       print("VTI: $p");
   }
