@@ -143,6 +143,7 @@ class Package extends ProjectDependencies {
     final name = yaml['name'];
     final description = yaml['description'];
     if (name is! String || description is! String) {
+      print('error2 : $packageJson');
       print('error2 : yamlName :${name.toString()} , description :${description.toString()}');
       return null;
     }
